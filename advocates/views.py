@@ -7,7 +7,7 @@ from .serializers import AdvocateSerializer
 
 @api_view()
 def advocate_list(request):
-    advocates = Advocate.objects.all()
+    advocates = Advocate.objects.select_related('company').prefetch_related('links').all()
     serializer = AdvocateSerializer(advocates, many=True)
     return Response(serializer.data)
 

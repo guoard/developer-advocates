@@ -7,7 +7,7 @@ from .serializers import CompanySerializer
 
 @api_view()
 def company_list(request):
-    companies = Company.objects.all()
+    companies = Company.objects.prefetch_related('advocates').all()
     serializer = CompanySerializer(companies, many=True)
     return Response(serializer.data)
 
