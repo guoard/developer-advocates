@@ -9,7 +9,7 @@ class Advocate(BaseModel):
     short_bio = models.CharField(max_length=250)
     long_bio = models.TextField(blank=True)
 
-    profile_pic = models.ImageField(upload_to='media/advocates/', blank=True, null=True)
+    profile_pic = models.ImageField(upload_to='advocates/%Y/%m/%d/', blank=True, null=True)
 
     advocate_years_exp = models.PositiveSmallIntegerField(default=0)
 
