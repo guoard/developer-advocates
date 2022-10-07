@@ -7,7 +7,7 @@ from companies.models import Company
 class Advocate(BaseModel):
     name = models.CharField(max_length=100)
     short_bio = models.CharField(max_length=250)
-    long_bio = models.TextField(blank=True)
+    long_bio = models.TextField(blank=True, null=True)
 
     profile_pic = models.ImageField(upload_to='advocates/%Y/%m/%d/', blank=True, null=True)
 
