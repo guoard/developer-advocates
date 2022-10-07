@@ -18,11 +18,7 @@ class Advocate(BaseModel):
 
 
 class SocialMedia(BaseModel):
-    class Type(models.TextChoices):
-        YOUTUBE = 'YOUTUBE', 'Youtube'
-        TWITTER = 'TWITTER', 'Twitter'
-        GITHUB = 'GITHUB', 'Github'
-
-    address = models.URLField()
-    type = models.CharField(max_length=50, choices=Type.choices)
+    youtube = models.URLField(null=True, blank=True)
+    twitter = models.URLField(null=True, blank=True)
+    github = models.URLField(null=True, blank=True)
     advocate = models.ForeignKey(Advocate, on_delete=models.PROTECT)
