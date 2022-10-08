@@ -1,8 +1,8 @@
-from django.urls import path
+from rest_framework.routers import DefaultRouter
 
 from . import views
 
-urlpatterns = [
-    path('', views.advocate_list, name='advocate-list'),
-    path('<int:id>/', views.advocate_detail, name='advocate-detail'),
-]
+router = DefaultRouter()
+router.register('advocates', views.AdvocateViewSet)
+
+urlpatterns = router.urls
