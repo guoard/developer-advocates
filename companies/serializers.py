@@ -13,11 +13,11 @@ class CompanyAdvocateSerializer(serializers.ModelSerializer):
     href = serializers.SerializerMethodField('get_self')
 
     def get_self(self, advocate: Advocate):
-        return reverse('advocate-detail', kwargs={'id': advocate.id})
+        return reverse('advocate-detail', kwargs={'pk': advocate.id})
 
 
 class CompanySerializer(serializers.ModelSerializer):
-    advocates = CompanyAdvocateSerializer(many=True)
+    advocates = CompanyAdvocateSerializer(many=True, read_only=True)
 
     class Meta:
         model = Company
