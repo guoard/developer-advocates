@@ -10,9 +10,9 @@ class CompanyAdvocateSerializer(serializers.ModelSerializer):
         model = Advocate
         fields = ['id', 'name', 'profile_pic', 'href']
 
-    href = serializers.SerializerMethodField('get_self')
+    href = serializers.SerializerMethodField()
 
-    def get_self(self, advocate: Advocate):
+    def get_href(self, advocate: Advocate):
         return reverse('advocate-detail', kwargs={'pk': advocate.id})
 
 
